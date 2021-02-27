@@ -3,7 +3,30 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.30907.101
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GloboTicket", "GloboTicket\GloboTicket.csproj", "{A8ECC173-0EC5-4177-819B-E489AD08B2CE}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "GloboTicket", "GloboTicket\GloboTicket.csproj", "{A8ECC173-0EC5-4177-819B-E489AD08B2CE}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "GloboTicket.Server", "GloboTicket.Server\GloboTicket.Server.csproj", "{D9732CDA-5156-4BA7-96F4-FE4F0E3703F6}"
+EndProject
+Project("{E24C65DC-7377-472B-9ABA-BC803B73C61A}") = "globoTicketUI", "globoTicketUI\", "{7EC25D25-B63B-4183-B95E-0A308058CEF7}"
+	ProjectSection(WebsiteProperties) = preProject
+		TargetFrameworkMoniker = ".NETFramework,Version%3Dv4.0"
+		Debug.AspNetCompiler.VirtualPath = "/localhost_50094"
+		Debug.AspNetCompiler.PhysicalPath = "globoTicketUI\"
+		Debug.AspNetCompiler.TargetPath = "PrecompiledWeb\localhost_50094\"
+		Debug.AspNetCompiler.Updateable = "true"
+		Debug.AspNetCompiler.ForceOverwrite = "true"
+		Debug.AspNetCompiler.FixedNames = "false"
+		Debug.AspNetCompiler.Debug = "True"
+		Release.AspNetCompiler.VirtualPath = "/localhost_50094"
+		Release.AspNetCompiler.PhysicalPath = "globoTicketUI\"
+		Release.AspNetCompiler.TargetPath = "PrecompiledWeb\localhost_50094\"
+		Release.AspNetCompiler.Updateable = "true"
+		Release.AspNetCompiler.ForceOverwrite = "true"
+		Release.AspNetCompiler.FixedNames = "false"
+		Release.AspNetCompiler.Debug = "False"
+		VWDPort = "50094"
+		SlnRelativePath = "globoTicketUI\"
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -15,6 +38,13 @@ Global
 		{A8ECC173-0EC5-4177-819B-E489AD08B2CE}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{A8ECC173-0EC5-4177-819B-E489AD08B2CE}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{A8ECC173-0EC5-4177-819B-E489AD08B2CE}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D9732CDA-5156-4BA7-96F4-FE4F0E3703F6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D9732CDA-5156-4BA7-96F4-FE4F0E3703F6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D9732CDA-5156-4BA7-96F4-FE4F0E3703F6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D9732CDA-5156-4BA7-96F4-FE4F0E3703F6}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7EC25D25-B63B-4183-B95E-0A308058CEF7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7EC25D25-B63B-4183-B95E-0A308058CEF7}.Release|Any CPU.ActiveCfg = Debug|Any CPU
+		{7EC25D25-B63B-4183-B95E-0A308058CEF7}.Release|Any CPU.Build.0 = Debug|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
