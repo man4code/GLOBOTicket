@@ -16,19 +16,22 @@ namespace GloboTicket.Server.Data
             if (conferenceContext.Conferences.Any())
             {
                 return;
-            }
+            } 
 
-            var conf = new Conference()
+            for (var i = 0; i < 10; i++)
             {
-                Name = "First Event",
-                EventDate = DateTime.Now.AddDays(5),
-                IsActive = true,
-                OrganiserName = "Test Orrganizer",
-                ParticipantCount = 60,
-                Price = 2000,
-                Venue = "Bangalore"
-            };
-            conferenceContext.Conferences.Add(conf);
+                var conf = new Conference()
+                {
+                    Name = "First Event " + i,
+                    EventDate = DateTime.Now.AddDays(5),
+                    IsActive = true,
+                    OrganiserName = "Test Orrganizer " + i,
+                    ParticipantCount = 60,
+                    Price = 2000,
+                    Venue = "Bangalore 56007" + i
+                };
+                conferenceContext.Conferences.Add(conf);
+            }
             conferenceContext.SaveChanges();
         }
     }

@@ -1,3 +1,28 @@
-<p>
-  conference works!
-</p>
+<div *ngIf='Conferences && Conferences.length' class="row card-group">
+  <div class="col-4" *ngFor="let conference of Conferences">
+    <div class="card" style="width: 18rem;">
+      <div class="card-body">
+        <h5 class="card-title">{{conference.name}}</h5>
+        <h6 class="card-subtitle mb-2 text-muted">{{conference.organiserName}}</h6>
+        <p class="card-text">{{conference.eventDate}}</p>
+        <a href="#" class="card-link">{{conference.venue}}</a>
+        <a href="#" class="card-link">Book</a>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- <table *ngIf='Conferences && Conferences.length' class="table">
+    <tr>
+        <th>#</th>
+        <th>Game</th>
+        <th>Platform</th>
+        <th>Release</th>
+    </tr>
+    <tr *ngFor="let conference of Conferences">
+        <td>{{ 1}}</td>
+        <td>{{conference.name}}</td>
+        <td>{{conference.organiserName}}</td>
+        <td>{{conference.eventDate}}</td>
+    </tr>
+</table> -->

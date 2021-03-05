@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ConferenceService } from './conference.service';
+import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-conference',
@@ -8,18 +9,26 @@ import { ConferenceService } from './conference.service';
 })
 export class ConferenceComponent implements OnInit {
 
+  Conferences: Conference[];
+  isDataLoaded = false;
+  conf: Conference;
+
   constructor(private conferenceService: ConferenceService) {
-    conferenceService.resolveItems().subscribe(result => {
-      console.log(result);
-    });
+    // this.getConferences();
   }
 
   ngOnInit() {
+    this.conferenceService.resolveItems().subscribe({
+      next: results => {
+        this.Conferences = results;
+      }
+    });
   }
 
   getConferences() {
     this.conferenceService.resolveItems().subscribe(result => {
-      console.log(result);
+      this.Conferences = result;
+      return result;
     });
   }
 }
