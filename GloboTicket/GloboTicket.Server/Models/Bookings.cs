@@ -20,5 +20,14 @@ namespace GloboTicket.Server.Models
         public string Venue { get; set; }
         public decimal Price { get; set; }
         public bool IsActive { get; set; }
+        public int UserId { get; set; }
+        public BookingType BookingType { get; set; }
+    }
+
+    public enum BookingType
+    {
+        Event,
+        Conference,
+        Movies
     }
 }

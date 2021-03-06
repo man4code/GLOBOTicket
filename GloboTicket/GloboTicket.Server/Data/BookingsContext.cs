@@ -16,6 +16,7 @@ namespace GloboTicket.Server.Data
         }
 
         public DbSet<Bookings> Bookings { get; set; }
+        public DbSet<User> User { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
@@ -31,7 +32,18 @@ namespace GloboTicket.Server.Data
                     OrganiserName = "Test Orrganizer " + i,
                     ParticipantCount = 60,
                     Price = 2000,
-                    Venue = "Bangalore 56007" + i
+                    Venue = "Bangalore 56007" + i,
+                    UserId = i,
+                    BookingType = BookingType.Conference
+                });
+
+            modelBuilder.Entity<User>()
+                .HasData(
+                new User()
+                {
+                    Id = i,
+                    Name = "Test User" + i,
+                    EmailId = "test@test.com"
                 });
 
             base.OnModelCreating(modelBuilder);

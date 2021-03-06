@@ -29,6 +29,7 @@ namespace GloboTicket
             services.AddDbContext<BookingsContext>(options =>
             options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection"), 
             b => b.MigrationsAssembly("GloboTicket")));
+
             services.AddDatabaseDeveloperPageExceptionFilter();
             services.AddCors(options =>
             {
@@ -40,7 +41,8 @@ namespace GloboTicket
                                   });
             });
             services.AddControllers();
-            services.AddTransient<IConferenceService, ConferenceService>();
+            services.AddScoped<IConferenceService, ConferenceService>();
+            services.AddScoped<IUserService, UserService>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
