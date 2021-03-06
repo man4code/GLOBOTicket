@@ -26,8 +26,9 @@ namespace GloboTicket
         // For more information on how to configure your application, visit https://go.microsoft.com/fwlink/?LinkID=398940
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddDbContext<ConferenceContext>(options =>
-            options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection")));
+            services.AddDbContext<BookingsContext>(options =>
+            options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection"), 
+            b => b.MigrationsAssembly("GloboTicket")));
             services.AddDatabaseDeveloperPageExceptionFilter();
             services.AddCors(options =>
             {
@@ -39,7 +40,7 @@ namespace GloboTicket
                                   });
             });
             services.AddControllers();
-            services.AddScoped<IConferenceService, ConferenceService>();
+            services.AddTransient<IConferenceService, ConferenceService>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

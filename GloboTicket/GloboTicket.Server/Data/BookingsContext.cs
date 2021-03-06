@@ -8,23 +8,23 @@ using System.Threading.Tasks;
 
 namespace GloboTicket.Server.Data
 {
-    public static class DbInitializer
+    public class BookingsContext: DbContext
     {
-        public static void Initialize(BookingsContext bookingContext)
+        public BookingsContext(DbContextOptions<BookingsContext> options): base(options)
         {
-            bookingContext.Database.EnsureDeleted();
-            bookingContext.Database.Migrate();
-            //bookingContext.Database.EnsureCreated();
+            Database.EnsureCreated();
+        }
 
-            if (bookingContext.Bookings.Any())
-            {
-                return;
-            } 
+        public DbSet<Bookings> Bookings { get; set; }
 
-            for (var i = 0; i < 10; i++)
-            {
-                var conf = new Bookings()
+        protected override void OnModelCreating(ModelBuilder modelBuilder)
+        {
+            var i = 1;
+            modelBuilder.Entity<Bookings>()
+                .HasData(
+                new  Bookings()
                 {
+                    Id = i,
                     Name = "First Event " + i,
                     EventDate = DateTime.Now.AddDays(5),
                     IsActive = true,
@@ -32,10 +32,9 @@ namespace GloboTicket.Server.Data
                     ParticipantCount = 60,
                     Price = 2000,
                     Venue = "Bangalore 56007" + i
-                };
-                bookingContext.Bookings.Add(conf);
-            }
-            bookingContext.SaveChanges();
+                });
+
+            base.OnModelCreating(modelBuilder);
         }
     }
 }

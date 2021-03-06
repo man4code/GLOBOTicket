@@ -1,5 +1,6 @@
 using GloboTicket.Server.Data;
 using Microsoft.AspNetCore.Hosting;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
@@ -23,16 +24,15 @@ namespace GloboTicket
         {
             using (var scope = host.Services.CreateScope())
             {
-                var services = scope.ServiceProvider;
                 try
                 {
-                    var context = services.GetRequiredService<ConferenceContext>();
-                    DbInitializer.Initialize(context);
+                    var context = scope.ServiceProvider.GetService<BookingsContext>();
+                    context.Database.EnsureDeleted();
+                    context.Database.Migrate();
                 }
-                catch (Exception ex)
+                catch (Exception)
                 {
-                    var logger = services.GetRequiredService<ILogger<Program>>();
-                    logger.LogError(ex, "An error occurred creating the DB.");
+                    throw;
                 }
             }
         }

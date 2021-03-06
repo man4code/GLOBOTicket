@@ -4,6 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using GloboTicket.Server.Models;
 using GloboTicket.Services;
+using GloboTicket.ViewModels;
 using Microsoft.AspNetCore.Mvc;
 
 namespace GloboTicket.Controllers
